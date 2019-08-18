@@ -6,5 +6,8 @@
         {
             "path": "/Users/xiangcai/Documents/xiangcai-fe"
         }
-    ]
+    ],
+    "settings": {
+        "git.ignoreLimitWarning": true
+    }
 }
