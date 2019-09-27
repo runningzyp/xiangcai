@@ -5,8 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh 'docker build -t reg.xiangcaihua.com/test/xiangcai/backend .'
-                sh 'docker push reg.xiangcaihua.cc/test/xiangcai/backend'
+                sh 'docker build -t reg.xiangcaihua.com/xiangcai/backend .'
+                sh 'docker push reg.xiangcaihua.cc/xiangcai/backend'
             }
         }
         // stage('Test') {
@@ -16,7 +16,8 @@ pipeline {
         // }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                sh 'docker pull reg.xiangcaihua.com/xiangcai/backend'
+                sh 'docker run --name=xiangcai -idt -p 5000:80 reg.xiangcaihua.com/xiangcai/backend'
             }
         }
     }
