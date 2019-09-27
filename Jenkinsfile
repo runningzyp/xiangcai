@@ -1,5 +1,5 @@
 pipeline {
-    agent xiangcai
+    agent any
         stage('Build') {
             steps {
                 echo 'Building'
