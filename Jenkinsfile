@@ -17,6 +17,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'docker pull reg.xiangcaihua.com/xiangcai/backend'
+                sh 'docker rm -f xiangcai'
                 sh 'docker run --name=xiangcai -idt -p 5000:80 reg.xiangcaihua.com/xiangcai/backend'
             }
         }
