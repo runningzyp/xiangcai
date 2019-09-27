@@ -18,7 +18,7 @@ pipeline {
             steps {
                 sh 'docker pull reg.xiangcaihua.com/xiangcai/backend'
                 sh 'docker rm -f xiangcai'
-                sh 'docker run --name=xiangcai -idt -p 5000:5000 reg.xiangcaihua.com/xiangcai/backend'
+                sh 'docker run --name=xiangcai -idt -p 5000:5000 -v /home/xiangcai/xaingcai:/app reg.xiangcaihua.com/xiangcai/backend'
             }
         }
     }
