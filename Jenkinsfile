@@ -3,8 +3,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building'
-                sh 'docker build -t reg.xiangcaihua.cc/xiangcai/backend .'
-                sh 'docker push reg.xiangcaihua.cc/xiangcai/backend'
+                sh 'docker build -t reg.xiangcaihua.com/test/xiangcai/backend .'
+                sh 'docker push reg.xiangcaihua.cc/test/xiangcai/backend'
             }
         }
         // stage('Test') {
@@ -19,5 +19,4 @@ pipeline {
                 // sh 'mvn clean deploy'  # 此处调用脚本或者ansible、saltstak，部署到远程
             }
         }
-    }
 }
