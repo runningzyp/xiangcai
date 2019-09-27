@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building...'
                 sh 'docker build -t reg.xiangcaihua.com/xiangcai/backend .'
-                sh 'docker push reg.xiangcaihua.cc/xiangcai/backend'
+                sh 'docker push reg.xiangcaihua.com/xiangcai/backend'
             }
         }
         // stage('Test') {
