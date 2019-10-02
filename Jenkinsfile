@@ -9,11 +9,11 @@ pipeline {
                 sh 'docker push reg.xiangcaihua.com/xiangcai/backend'
             }
         }
-        // stage('Test') {
-        //     steps {
-        //         echo 'Testing..'
-        //     }
-        // }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
         stage('Deploy') {
             steps {
                 sh 'docker pull reg.xiangcaihua.com/xiangcai/backend'
