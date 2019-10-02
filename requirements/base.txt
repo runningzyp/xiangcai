@@ -4,5 +4,3 @@ gunicorn
 django-shell-plus
 django_extensions
 django-cors-headers
-mysql-client
-pymysql
