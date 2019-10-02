@@ -82,10 +82,12 @@ WSGI_APPLICATION = 'apps.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql', #选择mysql引擎
+        'NAME': 'xiangcai', #数据库名
+        'USER':'xiangcai', #用户
     }
 }
+
 
 
 # Password validation
