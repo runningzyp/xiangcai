@@ -10,7 +10,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: xiangcai
+      tag: xiangcai/backend
       pushRemote: true
       registry: reg.xiangcaihua.com
 - name: deploy
