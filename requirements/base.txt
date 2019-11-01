@@ -5,4 +5,5 @@ django-shell-plus
 django_extensions
 django-cors-headers
 django-environ
+django-rest-swagger
 ipdb
