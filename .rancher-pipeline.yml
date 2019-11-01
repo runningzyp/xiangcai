@@ -3,10 +3,8 @@ stages:
   steps:
   - runScriptConfig:
       image: gcc:latest
-      shellScript: |-
-        ls
-
-        cat DATABASE_URL='mysql://root:zhan@1996@106.15.186.207:31866/xiangcai?local_infile=1'
+      shellScript: cat DATABASE_URL='mysql://root:zhan@1996@106.15.186.207:31866/xiangcai?local_infile=1'
+        >> config/.env
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
