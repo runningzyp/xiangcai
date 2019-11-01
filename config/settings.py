@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '(j)a6tcj0j)+5vh*&a1o^w1lzbe0_xamkbr4=xcgckdhqf!jb5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'shell_plus',
     'django_extensions',
     'corsheaders',
+    'rest_framework_swagger'
 ]
 
 MIDDLEWARE = [
@@ -123,6 +124,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'blog.pagination.CustomPagination',
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'
 }
 
 SHELL_PLUS = 'ipython'
