@@ -10,15 +10,14 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: xiangcai/backend
-      pushRemote: true
+      tag: xiangcai
       registry: reg.xiangcaihua.com
 - name: deploy
   steps:
   - applyAppConfig:
       catalogTemplate: xiangcai
       version: latest
-      name: xiangcai-backend
+      name: xiangcai
       targetNamespace: default
 timeout: 60
 notification: {}
