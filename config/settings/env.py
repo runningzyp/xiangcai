@@ -1,7 +1,6 @@
 import os 
 import json
 from .server import *
-
 DATABASES = {
     "default": env.db() or{
                 'ENGINE': 'django.db.backends.mysql', #选择mysql引擎
