@@ -17,6 +17,6 @@ stages:
   steps:
   - runScriptConfig:
       image: reg.xiangcaihua.com/xiangcai/backend
-      shellScript: ./utility/run.sh
+      shellScript: sh ./utility/run.sh
 timeout: 60
 notification: {}
