@@ -17,6 +17,6 @@ stages:
   steps:
   - runScriptConfig:
       image: reg.xiangcaihua.com/xiangcai/backend
-      shellScript: python manage.py runserver
+      shellScript: sh ./utility/run.sh
 timeout: 60
 notification: {}
