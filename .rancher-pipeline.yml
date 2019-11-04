@@ -4,7 +4,7 @@ stages:
   - runScriptConfig:
       image: gcc:latest
       shellScript: |-
-        cat >> config/.env << EOF
+        cat >> config/settings/.env << EOF
         DATABASE_URL='mysql://root:zhan@1996@106.15.186.207:31866/xiangcai?local_infile=1'
         EOF
   - publishImageConfig:
