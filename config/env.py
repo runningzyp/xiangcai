@@ -15,19 +15,23 @@ DATABASES = {
 print()
 
 import os
-sz=os.get_terminal_size()
-height = sz.lines
-txt =  [x for x in json.dumps(DATABASES["default"],indent=1).split('\n')]
-screen_width=sz.columns
-txt_width = 50
-box_width = 3
-left_margin = (screen_width - txt_width ) //2
+try:
+    sz=os.get_terminal_size()
+except Exception:
+    pass
+else:
+    height = sz.lines
+    txt =  [x for x in json.dumps(DATABASES["default"],indent=1).split('\n')]
+    screen_width=sz.columns
+    txt_width = 50
+    box_width = 3
+    left_margin = (screen_width - txt_width ) //2
 
-print()
-print(' ' * left_margin + '+' + '-' * (txt_width) + '+')
-print(' ' * left_margin +'|' + ' ' * (txt_width) + '|')
-for t in txt:
-    print(' ' * left_margin +'|' + ' ' * (box_width) +t + ' ' * (box_width))
-print(' ' * left_margin +'|' + ' ' * (txt_width) + '|')
-print(' ' * left_margin +'+' + '-' * (txt_width) + '+')
-print()
+    print()
+    print(' ' * left_margin + '+' + '-' * (txt_width) + '+')
+    print(' ' * left_margin +'|' + ' ' * (txt_width) + '|')
+    for t in txt:
+        print(' ' * left_margin +'|' + ' ' * (box_width) +t + ' ' * (box_width))
+    print(' ' * left_margin +'|' + ' ' * (txt_width) + '|')
+    print(' ' * left_margin +'+' + '-' * (txt_width) + '+')
+    print()
