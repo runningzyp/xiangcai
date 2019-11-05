@@ -1,22 +1,24 @@
 pipeline {
-    agent xiangcai
+    agent any
+
+    stages {
         stage('Build') {
             steps {
-                echo 'Building'
-                sh 'docker build -t reg.xiangcaihua.cc/xiangcai/backend .'
-                sh 'docker push reg.xiangcaihua.cc/xiangcai/backend'
+                echo 'Building...'
+                sh 'docker build -t reg.xiangcaihua.com/xiangcai/backend .'
+                sh 'docker push reg.xiangcaihua.com/xiangcai/backend'
             }
         }
-        // stage('Test') {
-        //     steps {
-        //         echo 'Testing'
-        //         sh 'mvn clean verify sonar:sonar' # 此处可以使用mvn test替代，笔者这步是检测代码的质量同步到自己的代码质量检测平台。
-        //     }
-        // }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
         stage('Deploy') {
             steps {
-                echo 'Deploying'
-                // sh 'mvn clean deploy'  # 此处调用脚本或者ansible、saltstak，部署到远程
+                sh 'docker pull reg.xiangcaihua.com/xiangcai/backend'
+                sh 'docker rm -f xiangcai'
+                sh 'docker run --name=xiangcai -idt -p 5000:5000 reg.xiangcaihua.com/xiangcai/backend'
             }
         }
     }
