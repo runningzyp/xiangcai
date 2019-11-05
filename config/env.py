@@ -13,6 +13,9 @@ DATABASES = {
         }
 print()
 
+import pymysql
+pymysql.install_as_MySQLdb()
+
 import os
 try:
     sz=os.get_terminal_size()
