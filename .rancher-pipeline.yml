@@ -4,7 +4,7 @@ stages:
   - runScriptConfig:
       image: gcc:latest
       shellScript: |-
-        cat >> config/settings/.env << EOF
+        cat >> config/.env << EOF
         DATABASE_URL='mysql://root:zhan@1996@106.15.186.207:31866/xiangcai?local_infile=1'
         EOF
   - publishImageConfig:
@@ -15,8 +15,7 @@ stages:
       registry: reg.xiangcaihua.com
 - name: deploy
   steps:
-  - runScriptConfig:
-      image: reg.xiangcaihua.com/xiangcai/backend
-      shellScript: sh ./utility/run.sh
+  - applyYamlConfig:
+      path: ./deployment.yaml
 timeout: 60
 notification: {}
