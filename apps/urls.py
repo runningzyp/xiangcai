@@ -22,12 +22,18 @@ from django.conf import settings
 from django.views import static
 from rest_framework_swagger.views import get_swagger_view
 
-schema_view = get_swagger_view(title='Pastebin API')
+schema_view = get_swagger_view(title="Pastebin API")
 urlpatterns = [
-    url(r'^static/(?P<path>.*)$', static.serve,
-        {'document_root': settings.STATIC_ROOT}, name='static'),
-    url(r'^docs$', schema_view),
-    path('admin/', admin.site.urls),
-    path('', include('blog.urls')),
-   
+    url(
+        r"^static/(?P<path>.*)$",
+        static.serve,
+        {"document_root": settings.STATIC_ROOT},
+        name="static",
+    ),
+    url(r"^docs$", schema_view),
+    path("admin/", admin.site.urls),
+    path("", include("blog.urls")),
 ]
+
+handler404 = "blog.views.general.errors.page_not_found"
+handler404 = "blog.views.general.errors.page_error"

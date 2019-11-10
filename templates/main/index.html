@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 style="text-align: center">asdsad</h1>
+
+<ul class="list-group">
+    {% for article in articles%}
+    <li class="list-group-item">
+        <a href="{% url 'article' article.id %}">{{article.title}}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}}
