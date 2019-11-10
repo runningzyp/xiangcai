@@ -1,6 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1 style="text-align: center;">{{article.title}}</h1>
+
+
+<div class="jumbotron">
+    <div class="container">
+        <h1 style="text-align: center;">{{article.title}}</h1>
+        <p>
+            {{article.body}}
+        </p>
+    </div>
+</div>
 
 {% endblock content %}
