@@ -6,7 +6,8 @@ import pymysql
 from .server import *
 
 DATABASES = {
-    "default": env.db()or {
+    "default": env.db()
+    or {
         "ENGINE": "django.db.backends.mysql",  # 选择mysql引擎
         "NAME": "xiangcai",  # 数据库名
         "USER": "xiangcai",  # 用户
