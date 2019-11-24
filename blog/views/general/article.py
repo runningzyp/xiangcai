@@ -1,14 +1,8 @@
 from blog.models import Article
 from django.shortcuts import get_object_or_404
-from django.template import (
-    RequestContext,
-    TemplateDoesNotExist,
-    TemplateSyntaxError,
-    loader,
-)
 
 # some_app/views.py
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView
 
 
 class IndexView(TemplateView):

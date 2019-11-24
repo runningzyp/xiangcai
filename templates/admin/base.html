@@ -1,0 +1,19 @@
+{% extends "admin/base.html" %}
+{% load static %}
+{% block extrahead %}
+<!-- Start custom scripts for customizing admin form -->
+<script src="{% static "ckeditor5/ckeditor.js" %}"></script>
+<script src="{% static "ckeditor5/translations/zh-cn.js" %}"></script>
+<script>
+    window.onload = function () {
+        ClassicEditor
+            .create(document.querySelector('#project_update_textarea'), {
+                language: 'zh-cn',
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
+</script>
+<!-- End custom scripts for customizing admin form -->
+{% endblock %}

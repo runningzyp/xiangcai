@@ -1,12 +1,10 @@
 import json
 import os
-
+from . import server
 import pymysql
 
-from .server import *
-
 DATABASES = {
-    "default": env.db()
+    "default": server.env.db()
     or {
         "ENGINE": "django.db.backends.mysql",  # 选择mysql引擎
         "NAME": "xiangcai",  # 数据库名
@@ -38,7 +36,9 @@ else:
     print(" " * left_margin + "+" + "-" * (txt_width) + "+")
     print(" " * left_margin + "|" + " " * (txt_width) + "|")
     for t in txt:
-        print(" " * left_margin + "|" + " " * (box_width) + t + " " * (box_width))
-    print(" " * left_margin + "|" + " " * (txt_width) + "|")
+        print(
+            " " * left_margin + "|" + " " * (box_width) + t + " " * (box_width)
+        )  # noqa E501
+    print(" " * left_margin + "|" + " " * (txt_width) + "|")  # noqa E501
     print(" " * left_margin + "+" + "-" * (txt_width) + "+")
     print()
