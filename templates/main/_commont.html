@@ -1,0 +1,8 @@
+<ul class="list-group">
+    {% for comment in article.comments.all %}
+    <li class="list-group-item">
+        {{comment.content}}
+        <span class="bs-popover-right" style="float: right;">创建时间:{{comment.create_time}}</span>
+    </li>
+    {% endfor %}
+</ul>

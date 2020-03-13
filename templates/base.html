@@ -1,4 +1,6 @@
 {% load static %}
+{% load bootstrap4 %}
+
 <!DOCTYPE html>
 <html>
 
@@ -15,25 +17,69 @@
     <meta name="MobileOptimized" content="320">
     {% block style %}
     <link rel="shortcut icon" type="image/x-icon" href=" {% static "my.ico" %} ">
-    <link rel=" stylesheet" type="text/css" href="{% static "custom/bootstrap/css/bootstrap.min.css" %}" />
-    <link rel="stylesheet" type="text/css" href="{% static "rest_framework/css/bootstrap.min.css" %}" />
+    <link rel=" stylesheet" type="text/css" href="{% static "custom/css/main.css" %}" />
+    <link rel=" stylesheet" type="text/css" href="{% static "custom/css/tools.css" %}" />
+    <link rel=" stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.min.css" %}" />
 
     {% endblock %}
 
 </head>
 
 <body>
+    {% block navbar %}
+    {% include "main/_navbar.html" %}
+    {%endblock navbar%}
     <div class="container-fluid">
         <div class="row clearfix">
-            <div class="col-xs-12 col-sm-6 col-md-8 col-md-offset-2 col-sm-offset-3">
-                {% block content %}
-                {% endblock content %}
+            <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 clearbackground">
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                </div>
+                {% endfor %}
+
+                <div class="col-md-4 col-xs-12">
+                    <div class="side">
+                    {% block side %}
+                        <ul>
+                            <li><a href="{% url 'index' %}">首页</a></li>
+                            <li><a href="{% url 'categories' %}">分类</a></li>
+                            <li><a href="#">标签</a></li>
+                            <li><a href="#">归档</a></li>
+
+
+                            <!-- {% for category in categories%}
+                            <li><a href="{% url 'category' %}">category</a></li>
+                            {% endfor %} -->
+                        </ul>
+                    {% endblock %}
+                    </div>
+                </div>
+                <div class="col-md-8 col-xs-12">
+                    <span>
+                        <h1 class="headline">
+                            {% block headline %}
+                            香菜的后花园
+                            {% endblock %}
+                        </h1>
+                    </span>
+                    {% block content %}
+                    {% block category %}
+                    {% endblock %}
+                    <hr>
+                    {% block page_content %}
+                    {% endblock %}
+                    {% endblock content %}
+                </div>
             </div>
         </div>
     </div>
 
-    {% csrf_token %}
-
 </body>
+{% block scripts %}
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+{% endblock %}
 
 </html>

@@ -1,15 +1,41 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block style %}
+{{ block.super }}
+<link rel=" stylesheet" type="text/css" href="{% static "custom/css/article.css" %}" />
+{% endblock  %}
+
+{% if article.body_toc %}
+{% block side %}
+<ol class="breadcrumb" style="background-color:inherit;">
+    <li><a href="{% url 'index' %}">Home</a></li>
+    <li><a href="{% url 'category' article.category.name %}">{{article.category.name}}</a></li>
+    <li class="active">Data</li>
+</ol>
+{{article.body_toc|safe}}
+{% endblock %}
+{% endif %}
+
 {% block content %}
+<div>
+    <h1 style="text-align: center;">{{article.title}}</h1>
+    {{article.body_html|safe}}
+</div>  
 
-
-
-<div class="jumbotron">
-    <div class="container">
-        <h1 style="text-align: center;">{{article.title}}</h1>
-        <p>
-            {{article.body}}
-        </p>
+<div class="row clearfix">
+    <div class="col-md-12 column">
+        <form action="{% url 'comment' article.id %}" , method="POST" ,role="form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>发表评论</label>
+                <textarea type="email" class="form-control" name="comment"></textarea>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
     </div>
 </div>
+
+{% include "main/_commont.html" %}
 
 {% endblock content %}

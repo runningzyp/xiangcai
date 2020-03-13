@@ -1,0 +1,11 @@
+{% if category_list %}
+<ul class="list-group">
+    {% for category in category_list%}
+    <a href="{% url 'category' category.name %}" class="btn btn-sm {% if category.name == object.name %} btn-default {% else %}btn-info {%endif%} ">
+        {{category}}  <span class="badge">{{category.articles.count}}</span>
+    </a>
+    {% endfor %}
+</ul>
+{% else %}
+空
+{% endif %}

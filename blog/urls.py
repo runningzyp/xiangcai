@@ -1,4 +1,6 @@
-from blog.views.general.article import IndexView, AtricleDetailView
+from blog.views.generic.article import IndexView, ArticleDetailView
+from blog.views.generic.comment import ArticleCommentView
+from blog.views.generic.category import CategoryListView, CategoryDetailView
 from django.urls import include, path
 from rest_framework import routers
 
@@ -6,7 +8,16 @@ from . import views
 
 urlpatterns = [
     path("", IndexView.as_view(), name="index"),
-    path(r"article/<int:pk>", AtricleDetailView.as_view(), name="article"),
+    path(r"article/<str:slug>", ArticleDetailView.as_view(), name="article"),
+    path(r"categories", CategoryListView.as_view(), name="categories"),
+    path(
+        r"category/<str:slug>", CategoryDetailView.as_view(), name="category"
+    ),
+    path(
+        r"article/<int:pk>/comments",
+        ArticleCommentView.as_view(),
+        name="comment",
+    ),
 ]
 
 

@@ -10,7 +10,7 @@ DATABASES = {
         "NAME": "xiangcai",  # 数据库名
         "USER": "xiangcai",  # 用户
         "PASSWORD": "xiangcai",  # 密码
-        "HOST": "localhost",  # 连接IP地址，默认本地
+        "HOST": "xiangcai",  # 连接IP地址，默认本地
         "PORT": "3306",  # 端口，默认3306
     }
 }

@@ -1,0 +1,12 @@
+{% if article_list %}
+<ul class="list-group">
+    {% for article in article_list%}
+    <li class="list-group-item">
+        <a href="{% url 'article' article.title %}">{{article.title}}</a>
+        <span class="bs-popover-right" style="float: right;">{{article.create_time}}</span>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+空
+{% endif %}

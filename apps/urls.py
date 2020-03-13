@@ -35,5 +35,5 @@ urlpatterns = [
     path("", include("blog.urls")),
 ]
 
-handler404 = "blog.views.general.errors.page_not_found"
-handler404 = "blog.views.general.errors.page_error"
+handler404 = "blog.views.generic.errors.page_not_found"
+handler404 = "blog.views.generic.errors.page_error"

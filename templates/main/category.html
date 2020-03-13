@@ -1,0 +1,12 @@
+{% extends "base.html" %} 
+{% block headline %}
+当前分类:{{ object.name }}
+{% endblock %} 
+
+{% block category %}
+{% include "main/_category.html" %}
+{% endblock category %}
+
+{% block page_content %}
+{% include "main/_article.html" %}
+{% endblock %}
