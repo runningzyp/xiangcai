@@ -18,8 +18,8 @@ class Article(models.Model):
         verbose_name="所属分类",
         related_name="articles",
         related_query_name="articles",
-        on_delete=models.SET_NULL,
-        null=True,
+        on_delete=models.SET_DEFAULT(),
+        default=1,
     )
     title = models.CharField("标题", max_length=200)
     body = models.TextField("文章")
