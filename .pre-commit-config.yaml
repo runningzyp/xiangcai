@@ -20,8 +20,8 @@ repos:
     rev: 'v0.701'  # Use the sha / tag you want to point at
     hooks:
     -   id: mypy
-        args:
-        - --follow-imports=error
+        # args:
+        # - --follow-imports=error
 -   repo: git@git.hypers.com:server-python/pre-commit-hooks.git
     rev: 9e5635
     hooks:
