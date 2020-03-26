@@ -21,6 +21,7 @@ from django.conf import settings
 
 from django.views import static
 from rest_framework_swagger.views import get_swagger_view
+
 # from django.contrib.sitemaps.views import sitemap
 
 

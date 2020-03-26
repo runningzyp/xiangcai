@@ -13,3 +13,5 @@ django-bootstrap4
 markdown
 django-ckeditor
 django-redis
+django-debug-toolbar
+django-debugtools
