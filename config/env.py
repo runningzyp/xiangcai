@@ -3,6 +3,16 @@ import os
 from . import server
 import pymysql
 
+REDIS_HOST = server.env("REDIS_HOST") or "redis://localhost/5"
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": REDIS_HOST,
+        "OPTIONS": {"CLIENT_CLASS": "django_redis.client.DefaultClient"},
+    }
+}
+
 DATABASES = {
     "default": server.env.db()
     or {

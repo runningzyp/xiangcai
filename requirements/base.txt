@@ -12,3 +12,4 @@ pandas
 django-bootstrap4
 markdown
 django-ckeditor
+django-redis

@@ -1,6 +1,13 @@
 {% extends "base.html" %}
-{% block content %}
+{％load debugtools_tags％}
+
+
 <ul class="list-group">
+    {％print％}
+    {% block content %}
+    {％print variable1 variable2％}
+    {％print original％}
+    {％print％}
     {% for article in articles%}
     <li class="list-group-item">
         <a href="{% url 'article' article.id %}">{{article.title}}</a>

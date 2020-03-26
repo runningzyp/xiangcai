@@ -21,6 +21,8 @@ from django.conf import settings
 
 from django.views import static
 from rest_framework_swagger.views import get_swagger_view
+# from django.contrib.sitemaps.views import sitemap
+
 
 schema_view = get_swagger_view(title="Pastebin API")
 urlpatterns = [
@@ -35,5 +37,11 @@ urlpatterns = [
     path("", include("blog.urls")),
 ]
 
+
 handler404 = "blog.views.generic.errors.page_not_found"
 handler404 = "blog.views.generic.errors.page_error"
+
+if settings.DEBUG:
+    import debug_toolbar
+
+    urlpatterns += [url(r"^__debug__/", include(debug_toolbar.urls))]
