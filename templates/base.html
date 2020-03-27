@@ -20,6 +20,16 @@
     <link rel=" stylesheet" type="text/css" href="{% static "custom/css/main.css" %}" />
     <link rel=" stylesheet" type="text/css" href="{% static "custom/css/tools.css" %}" />
     <link rel=" stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.min.css" %}" />
+    <style>
+        footer {
+            border-top: 1px solid #F7F1F1;
+            padding-top: 10px;
+            color: #C2C2C2;
+            font-size: 11px;
+            bottom: 0;
+            padding-bottom: 10px;
+        }
+    </style>
 
     {% endblock %}
 
@@ -41,7 +51,7 @@
 
                 <div class="col-md-4 col-xs-12">
                     <div class="side">
-                    {% block side %}
+                        {% block side %}
                         <ul>
                             <li><a href="{% url 'index' %}">首页</a></li>
                             <li><a href="{% url 'categories' %}">分类</a></li>
@@ -53,7 +63,7 @@
                             <li><a href="{% url 'category' %}">category</a></li>
                             {% endfor %} -->
                         </ul>
-                    {% endblock %}
+                        {% endblock %}
                     </div>
                 </div>
                 <div class="col-md-8 col-xs-12">
@@ -75,7 +85,10 @@
             </div>
         </div>
     </div>
-
+    <footer>
+        豫ICP备18022169号-1
+        ©
+    </footer>
 </body>
 {% block scripts %}
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
