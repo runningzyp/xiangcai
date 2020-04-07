@@ -1,6 +1,5 @@
 from blog.models import Category
 
-
 # some_app/views.py
 from django.views.generic import ListView, DetailView
 

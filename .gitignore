@@ -127,3 +127,4 @@ dmypy.json
 /static/
 .vscode/launch.json
 .vscode/settings.json
+.history

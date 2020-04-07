@@ -48,3 +48,7 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def time(self):
+        return self.create_time.strftime("%Y/%m/%d")
