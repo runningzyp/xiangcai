@@ -7,34 +7,32 @@
     </li>
     {% endfor %}
 </ul>
-<ul class="pagination">
-    <!--#上一页-->
-    <!--当有上一页时-->
-    {% if page_obj.has_previous %}
-    <li><a href="{% url 'index' %}?page={{ page_obj.previous_page_number }}">上一页</a></li>
-    {% else %}
-    <li class="disabled"><a href="#">上一页</a></li>
-    {% endif %}
+<div style="height: 20px;">
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+        <li><a href="{% url 'index' %}?page={{ page_obj.previous_page_number }}">&lt;&lt;</a></li>
+        {% else %}
+        <li class="disabled"><a href="#">
+                &lt;&lt;</a> </li>
+        {% endif %}
 
-    <!--中间的页码，如果是当前页，添加active属性-->
+        {% for page in paginator.page_range %}
+        {% if page == page_obj.number %}
+        <li class="active">
+            <a href="{% url 'index' %}?page={{ page }}">{{ page }}</a>
+        </li>
+        {% else %}
+        <li><a href="{% url 'index' %}?page={{ page }}">{{ page }}</a></li>
+        {% endif %}
+        {% endfor %}
 
-    {% for page in paginator.page_range %}
-    {% if page == page_obj.number %}
-    <li class="active">
-        <a href="{% url 'index' %}?page={{ page }}">{{ page }}</a>
-    </li>
-    {% else %}
-    <li><a href="{% url 'index' %}?page={{ page }}">{{ page }}</a></li>
-    {% endif %}
-    {% endfor %}
-
-    <!--#下一页-->
-    {% if page_obj.has_next %}
-    <li><a href="{% url 'index' %}?page={{ page_obj.next_page_number }}">下一页</a></li>
-    {% else %}
-    <li class="disabled"><a href="#">下一页</a></li>
-    {% endif %}
-</ul>
+        {% if page_obj.has_next %}
+        <li><a href="{% url 'index' %}?page={{ page_obj.next_page_number }}">&gt;&gt;</a></li>
+        {% else %}
+        <li class="disabled"><a href="#">&gt;&gt;</a></li>
+        {% endif %}
+    </ul>
+</div>
 {% else %}
 空
 {% endif %}

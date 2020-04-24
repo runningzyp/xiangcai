@@ -6,22 +6,12 @@
 <link rel=" stylesheet" type="text/css" href="{% static "custom/css/article.css" %}" />
 {% endblock  %}
 
-{% if article.body_toc %}
-{% block side %}
-<ol class="breadcrumb" style="background-color:inherit;">
-    <li><a href="{% url 'index' %}">Home</a></li>
-    <li><a href="{% url 'category' article.category.name %}">{{article.category.name}}</a></li>
-    <li class="active">Data</li>
-</ol>
-{{article.body_toc|safe}}
-{% endblock %}
-{% endif %}
 
 {% block content %}
 <div>
     <h1 style="text-align: center;">{{article.title}}</h1>
     {{article.body_html|safe}}
-</div>  
+</div>
 
 <div class="row clearfix">
     <div class="col-md-12 column">

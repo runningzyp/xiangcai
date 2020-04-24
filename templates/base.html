@@ -68,27 +68,30 @@
                     </div>
                 </div>
                 <div class="col-md-8 col-xs-12">
-                    <span style="display: inline-block">
-                        <h1 class="headline">
-                            {% block headline %}
-                            香菜的后花园
-                            {% endblock %}
-                        </h1>
-                    </span>
-                    {% block content %}
-                    {% block category %}
-                    {% endblock %}
-                    <hr>
-                    {% block page_content %}
-                    {% endblock %}
-                    {% endblock content %}
+                    <div class="content">
+                        <!-- <span style="display: inline-block">
+                            <h1 class="headline">
+                                {% block headline %}
+                                香菜的后花园
+                                {% endblock %}
+                            </h1>
+                        </span> -->
+                        {% block content %}
+                        {% block category %}
+                        {% endblock %}
+                        <hr>
+                        {% block page_content %}
+                        {% endblock %}
+                        {% endblock content %}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <footer>
-        豫ICP备18022169号-1
+        <a href="http://www.beian.miit.gov.cn" target="_blank">豫ICP备18022169号-1
         ©
+        </a>
     </footer>
 </body>
 {% block scripts %}

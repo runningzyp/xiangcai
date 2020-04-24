@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/Users/xiangcai/.local/share/virtualenvs/xiangcai-rBby4feO/bin/python",
+    "python.pythonPath": ".venv/bin/python",
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
     "python.linting.mypyEnabled": false,
